@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Tuku ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:#FFF7F8; /* Soft light background */
+  color:#4A3F3F; /* Soft dark brownish text */
+  overflow-x:hidden;
+  padding:20px;
+}
+
+h1,h2{
+  font-family:'Playfair Display',serif;
+  text-align:center;
+  margin:40px 0 20px;
+  color:#E88EA0; /* soft pink heading */
+}
+
+.buttons{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+button{
+  padding:14px 36px;
+  border-radius:40px;
+  border:none;
+  font-size:1rem;
+  cursor:pointer;
+  transition:.3s;
+  margin:10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.yes{
+  background:#FFD9E1; /* pastel pink */
+  color:#4A3F3F;
+  font-weight:600;
+}
+
+.no{
+  background:#F4E1E6; /* lighter soft pink */
+  color:#4A3F3F;
+  position:relative;
+}
+
+.letter{
+  font-family:'Playfair Display',serif;
+  font-size:1.25rem;
+  line-height:1.9;
+  background:#FFF0F2; /* very soft pink card */
+  padding:40px;
+  border-radius:24px;
+  max-width:850px;
+  margin:40px auto;
+  opacity:0;
+  transition:opacity 1.2s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.proposal{
+  text-align:center;
+  margin-top:40px;
+}
+
+footer{
+  text-align:center;
+  opacity:.6;
+  padding:40px 0;
+  font-style: italic;
+}
+
+.heart{
+  position:fixed;
+  width:16px;
+  height:16px;
+  background:#F9C0D3; /* soft pink heart */
+  transform:rotate(45deg);
+  animation:float 7s linear infinite;
+  opacity:.6;
+  pointer-events:none;
+}
+
+.heart::before,.heart::after{
+  content:'';
+  position:absolute;
+  width:16px;
+  height:16px;
+  background:#F9C0D3;
+  border-radius:50%;
+}
+
+.heart::before{top:-8px;left:0;}
+.heart::after{left:-8px;top:0;}
+
+@keyframes float{
+  0%{transform:translateY(0) rotate(45deg);opacity:0.6}
+  100%{transform:translateY(-100vh) rotate(45deg);opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<h1>Will you be my Valentine, Tuku? 💖</h1>
+
+<div class="buttons">
+  <button class="yes" id="valYes">Yes 💕</button>
+  <button class="no" id="valNo">No 🙈</button>
+</div>
+
+<div class="letter" id="letter">
+  My love Tuku 💖,<br><br>
+  This is my very first Valentine’s Day with the person I truly love, and my heart still feels full just thinking about you 🥹. From the day we met on August 5, 2025, you became someone incredibly special to me — someone I thank life for every single day ✨.<br><br>
+  I love you more than words, more than time, more than anything else in this world. You are my peace when life feels loud, my happiness when days feel heavy, and my strength when I feel weak 🤍. Loving you feels natural, gentle, and real — like something my heart was always meant to do.<br><br>
+  I’m endlessly grateful for your love, your trust, your patience, and for choosing me the way you do. You mean more to me than anyone and anything, and I promise to always choose you, today and every tomorrow 💫.
+
+  <div class="proposal">
+    <h2>Will you marry me, Tuku? 💍❤️</h2>
+    <button class="yes" id="marryYes">Yes 💍</button>
+    <button class="no" id="marryNo">No 🙈</button>
+  </div>
+</div>
+
+<footer>Made with all my love — just for you ❤️</footer>
+
+<!-- Music -->
+<iframe width="0" height="0"
+src="https://www.youtube.com/embed/vGJTaP6anOU?autoplay=1&loop=1&playlist=vGJTaP6anOU"
+allow="autoplay">
+</iframe>
+
+<script>
+const valNo = document.getElementById('valNo');
+const marryNo = document.getElementById('marryNo');
+const valYes = document.getElementById('valYes');
+const letter = document.getElementById('letter');
+
+[valNo, marryNo].forEach(btn=>{
+  btn.addEventListener('mouseover',()=>{
+    const x=Math.random()*200-100;
+    const y=Math.random()*40-20;
+    btn.style.transform=`translate(${x}px,${y}px)`;
+  });
+});
+
+valYes.addEventListener('click',()=>{
+  letter.style.opacity='1';
+  startHearts();
+  letter.scrollIntoView({behavior:'smooth'});
+});
+
+document.getElementById('marryYes').addEventListener('click',()=>{
+  alert("She said YES 💍❤️\nForever starts now.");
+});
+
+function startHearts(){
+  setInterval(()=>{
+    const heart=document.createElement('div');
+    heart.className='heart';
+    heart.style.left=Math.random()*100+'vw';
+    heart.style.bottom='-20px';
+    heart.style.animationDuration=4+Math.random()*3+'s';
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),7000);
+  },400);
+}
+</script>
+
+</body>
+</html>
